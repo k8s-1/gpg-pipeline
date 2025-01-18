@@ -42,9 +42,6 @@ cat "$FILE"
 # encrypt
 # cat "$FILE"
 
-# cleanup
-rm tmp tmp2
-
 # # for testing only
 # git add "$ENCRYPTED_FILE" "$UNENCRYPTED_FILE"
 # git commit -m "adding files"
