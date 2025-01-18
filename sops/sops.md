@@ -1,3 +1,6 @@
+# more secure:
+$ cat encrypted-data | sops decrypt /dev/stdin > decrypted-data
+
 # age
 Generate a new private-pub key
 age-keygen -o key.txt
@@ -21,7 +24,7 @@ docker run \
     -w /code \
     -e SOPS_AGE_KEY_FILE=keys.txt \
     -v $(pwd):/code \
-    -it ghcr.io/getsops/sops:v3.9.2 decrypt --age test.yaml.enc > test.yaml
+    -it ghcr.io/getsops/sops:v3.9.2 decrypt test.yaml.enc > test.yaml
 
 # easy decrypt
 When decrypting a file with the corresponding identity, SOPS will look for a text file name keys.txt located in a sops subdirectory of your user configuration directory. On Linux, this would be $XDG_CONFIG_HOME/sops/age/keys.txt. If $XDG_CONFIG_HOME is not set $HOME/.config/sops/age/keys.txt is used instead. On macOS, this would be $HOME/Library/Application Support/sops/age/keys.txt. On Windows, this would be %AppData%\sops\age\keys.txt. You can specify the location of this file manually by setting the environment variable SOPS_AGE_KEY_FILE. Alternatively, you can provide the key(s) directly by setting the SOPS_AGE_KEY environment variable.
