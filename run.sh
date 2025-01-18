@@ -19,7 +19,7 @@ if [[ "$start" == "$ENCRYPTION_ID" ]]; then
   gpg --batch --yes --passphrase "$GPG_PASSPHRASE" --armor --output "$UNENCRYPTED_FILE" --decrypt "$ENCRYPTED_FILE"
   cat "$UNENCRYPTED_FILE"
 else
-  echo "No match"
+  echo "File is not encrypted...skipping"
 fi
 
 # encrypt
