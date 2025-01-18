@@ -27,6 +27,8 @@ echo "$ENCRYPTION_ID" > "$ENCRYPTED_FILE"
 gpg --batch --yes --passphrase "$GPG_PASSPHRASE" --armor --output tmp --symmetric --cipher-algo AES256 "$UNENCRYPTED_FILE"
 cat tmp >> "$ENCRYPTED_FILE"
 
+cat "$ENCRYPTED_FILE" "$UNENCRYPTED_FILE"
+
 # # for testing only
 # git add "$ENCRYPTED_FILE" "$UNENCRYPTED_FILE"
 # git commit -m "adding files"
