@@ -22,7 +22,7 @@ docker run \
 ## decrypt in docker
 docker run \
     -w /code \
-    -e SOPS_AGE_KEY_FILE=keys.txt \
+    -e SOPS_AGE_KEY_FILE=./keys.txt \
     -v $(pwd):/code \
     -it ghcr.io/getsops/sops:v3.9.2 decrypt test.yaml.enc > test.yaml
 
