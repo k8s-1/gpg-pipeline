@@ -6,7 +6,7 @@ GPG_PASSPHRASE=123
 gpg --version
 
 FILE="file.data"
-ENCRYPTION_ID="self-rolled-caesar"
+ENCRYPTION_ID="Security is not a product, but a process. – Bruce Schneier"
 
 # conditionally unencrypt if encryption id is present
 function decrypt() {
@@ -39,8 +39,8 @@ cat "$FILE"
 decrypt
 cat "$FILE"
 
-# encrypt
-# cat "$FILE"
+encrypt
+cat "$FILE"
 
 # # for testing only
 # git add "$ENCRYPTED_FILE" "$UNENCRYPTED_FILE"
