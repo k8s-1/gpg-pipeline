@@ -1,1 +1,3 @@
-Error unmarshalling input json: invalid character 'a' looking for beginning of value
+test:
+  my: yaml
+  ok: 123
