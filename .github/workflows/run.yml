@@ -1,13 +1,42 @@
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
 
 jobs:
   gpg:
     runs-on: ubuntu-latest
     steps:
       - name: gpg
+        env:
+          GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
         run: |
           gpg --version
+
+          ENCRYPTED_FILE="data.enc"
+          UNENCRYPTED_FILE="unencrypted.data"
+          ENCRYPTION_ID="encryption-id-187^DSA#"
+
+          # for testing only
+          rm "$UNENCRYPTED_FILE"
+
+          echo "$ENCRYPTION_ID" > data.enc
+
+          # conditionally unencrypt if encryption id is present
+          start=$(head -c "${#ENCRYPTION_ID}" "$ENCRYPTED_FILE")
+          if [[ "$start" == "$ENCRYPTION_ID" ]]; then
+            echo "$ENCRYPTED_FILE is encrypted with $ENCRYPTION_ID"
+            echo "Unencrypting it..."
+            gpg --batch --yes --passphrase "$GPG_PASSPHRASE" --armor --output "$UNENCRYPTED_FILE" --decrypt "$ENCRYPTED_FILE"
+            cat "$UNENCRYPTED_FILE"
+          else
+            echo "No match"
+          fi
+
+          # encrypt
+          gpg --batch --yes --passphrase "$GPG_PASSPHRASE" --armor --output tmp --symmetric --cipher-algo AES256 "$UNENCRYPTED_FILE"
+          cat tmp >> "$ENCRYPTED_FILE"
+
+          # for testing only
+          git add .
+          git commit -m "adding files"
+          git push
+
