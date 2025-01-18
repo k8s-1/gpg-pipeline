@@ -1,71 +1,114 @@
 {
-  "company": {
-    "name": "QuickFoods",
-    "branches": [
-      {
-        "id": 1,
-        "location": "New York",
-        "employees": [
-          {
-            "id": "E001",
-            "name": "Alice Johnson",
-            "roles": ["Manager", "HR"]
-          },
-          {
-            "id": "E002",
-            "name": "Bob Smith",
-            "roles": ["Chef", "Inventory"]
-          }
-        ],
-        "menu": [
-          {
-            "category": "Burgers",
-            "items": [
-              { "id": "B101", "name": "Cheeseburger", "price": 5.99 },
-              { "id": "B102", "name": "Veggie Burger", "price": 4.99 }
-            ]
-          },
-          {
-            "category": "Drinks",
-            "items": [
-              { "id": "D201", "name": "Soda", "price": 1.99 },
-              { "id": "D202", "name": "Water", "price": 0.99 }
-            ]
-          }
-        ]
-      },
-      {
-        "id": 2,
-        "location": "Los Angeles",
-        "employees": [
-          {
-            "id": "E003",
-            "name": "Charlie Brown",
-            "roles": ["Manager"]
-          },
-          {
-            "id": "E004",
-            "name": "Dana White",
-            "roles": ["Chef", "Server"]
-          }
-        ],
-        "menu": [
-          {
-            "category": "Pizzas",
-            "items": [
-              { "id": "P301", "name": "Pepperoni Pizza", "price": 8.99 },
-              { "id": "P302", "name": "Margherita Pizza", "price": 7.99 }
-            ]
-          },
-          {
-            "category": "Desserts",
-            "items": [
-              { "id": "DS401", "name": "Ice Cream", "price": 2.99 },
-              { "id": "DS402", "name": "Brownie", "price": 3.99 }
-            ]
-          }
-        ]
-      }
-    ]
-  }
+	"company": {
+		"name": "QuickFoods",
+		"branches": [
+			{
+				"id": 1,
+				"location": "New York",
+				"employees": [
+					{
+						"id": "E001",
+						"name": "Alice Johnson",
+						"roles": [
+							"Manager",
+							"HR"
+						]
+					},
+					{
+						"id": "E002",
+						"name": "Bob Smith",
+						"roles": [
+							"Chef",
+							"Inventory"
+						]
+					}
+				],
+				"menu": [
+					{
+						"category": "Burgers",
+						"items": [
+							{
+								"id": "B101",
+								"name": "Cheeseburger",
+								"price": 5.99
+							},
+							{
+								"id": "B102",
+								"name": "Veggie Burger",
+								"price": 4.99
+							}
+						]
+					},
+					{
+						"category": "Drinks",
+						"items": [
+							{
+								"id": "D201",
+								"name": "Soda",
+								"price": 1.99
+							},
+							{
+								"id": "D202",
+								"name": "Water",
+								"price": 0.99
+							}
+						]
+					}
+				]
+			},
+			{
+				"id": 2,
+				"location": "Los Angeles",
+				"employees": [
+					{
+						"id": "E003",
+						"name": "Charlie Brown",
+						"roles": [
+							"Manager"
+						]
+					},
+					{
+						"id": "E004",
+						"name": "Dana White",
+						"roles": [
+							"Chef",
+							"Server"
+						]
+					}
+				],
+				"menu": [
+					{
+						"category": "Pizzas",
+						"items": [
+							{
+								"id": "P301",
+								"name": "Pepperoni Pizza",
+								"price": 8.99
+							},
+							{
+								"id": "P302",
+								"name": "Margherita Pizza",
+								"price": 7.99
+							}
+						]
+					},
+					{
+						"category": "Desserts",
+						"items": [
+							{
+								"id": "DS401",
+								"name": "Ice Cream",
+								"price": 2.99
+							},
+							{
+								"id": "DS402",
+								"name": "Brownie",
+								"price": 3.99
+							}
+						]
+					}
+				]
+			}
+		]
+	}
 }
