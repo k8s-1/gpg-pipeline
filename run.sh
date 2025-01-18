@@ -2,6 +2,17 @@
 
 # will encrypt file with different armor even if no changes were made
 
+# process:
+# 1. generate files
+# 2. encrypt
+# 3. version control
+# ...
+# 1. decrypt as needed
+#
+#
+# for file in *; do mv "$file" "${file%.*}.encrypted" done
+# for file in *.encrypted; do mv "$file" "${file%.*}"; done
+
 set -eu
 
 GPG_PASSPHRASE=123
@@ -9,6 +20,8 @@ GPG_PASSPHRASE=123
 gpg --version
 
 FILE="file.data"
+
+# you need an id to traceback which encryption method was used in case rotation is needed
 ENCRYPTION_ID="Security is not a product, but a process. – Bruce Schneier"
 
 # conditionally unencrypt if encryption id is present
