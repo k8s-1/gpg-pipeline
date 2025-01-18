@@ -21,3 +21,6 @@ gpg --batch --yes --passphrase "$GPG_PASSPHRASE" --armor --output encrypted.data
 export GPG_PASSPHRASE="your-strong-passphrase"
 gpg --batch --yes --passphrase "$GPG_PASSPHRASE" --armor --output unencrypted.data --decrypt encrypted.data
 ```
+
+## Advised by SOPS:
+Do not use PGP for file encryption, prefer AGE instead.
