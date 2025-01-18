@@ -1,6 +1,6 @@
 #!/bin/bash
 
-GPG_PASSPHRASE=123
+# GPG_PASSPHRASE=123
 
 gpg --version
 
