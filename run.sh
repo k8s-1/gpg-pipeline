@@ -1,4 +1,7 @@
 #!/bin/bash
+
+# will encrypt file with different armor even if no changes were made
+
 set -eu
 
 GPG_PASSPHRASE=123
