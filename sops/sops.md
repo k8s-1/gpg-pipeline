@@ -5,9 +5,10 @@ $ cat encrypted-data | sops decrypt /dev/stdin > decrypted-data
 Generate a new private-pub key
 age-keygen -o key.txt
 
-# without docker
+# without docker + -i flag for in-place encryption
 PK=age1c6ejj2rcwuxr77pscn5qsfmzp7jtrr0z0qut0yddxayqy0ku7p5qjnz46c
-sops encrypt --age "$PK" test.yaml > test.enc.yaml
+sops encrypt -i --age "$PK" test.yaml
+sops decrypt -i test.yaml
 
 # run it in docker
 docker run -i ghcr.io/getsops/sops:v3.9.2 -h
