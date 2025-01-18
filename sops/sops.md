@@ -1,3 +1,7 @@
+# age
+Generate a new private-pub key
+age-keygen -o key.txt
+
 # without docker
 sops encrypt --age age1yt3tfqlfrwdwx0z0ynwplcr6qxcxfaqycuprpmy89nr83ltx74tqdpszlw test.yaml > test.enc.yam
 
