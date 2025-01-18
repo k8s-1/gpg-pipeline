@@ -1,37 +1,47 @@
 #!/bin/bash
+set -eu
 
-# GPG_PASSPHRASE=123
+GPG_PASSPHRASE=123
 
 gpg --version
 
-ENCRYPTED_FILE="data.enc"
-UNENCRYPTED_FILE="unencrypted.data"
-ENCRYPTION_ID="encryption-id-187#"
+FILE="file.data"
+ENCRYPTION_ID="self-rolled-caesar"
 
 # conditionally unencrypt if encryption id is present
 function decrypt() {
-  if [ -f "$ENCRYPTED_FILE" ]; then
-    start=$(head -c "${#ENCRYPTION_ID}" "$ENCRYPTED_FILE")
+  if [ -f "$FILE" ]; then
+    HEAD=$(head -n 1 "$FILE")
   fi
 
-  if [[ "$start" == "$ENCRYPTION_ID" ]]; then
-    echo "$ENCRYPTED_FILE is encrypted with $ENCRYPTION_ID"
+  if [[ "$HEAD" == "$ENCRYPTION_ID" ]]; then
+    echo "$FILE is encrypted with $ENCRYPTION_ID"
     echo "Unencrypting it..."
-    gpg --batch --yes --passphrase "$GPG_PASSPHRASE" --armor --output "$UNENCRYPTED_FILE" --decrypt "$ENCRYPTED_FILE"
-    cat "$UNENCRYPTED_FILE"
+    sed -i '1d' "$FILE"
+    gpg --batch --yes --passphrase "$GPG_PASSPHRASE" --armor --output tmp --decrypt "$FILE"
+    mv tmp "$FILE"
+    cat "$FILE"
   else
-    echo "File is not encrypted...skipping"
+    echo "$FILE is not encrypted...skipping"
   fi
 }
 
 # encrypt
 function encrypt() {
-  echo "$ENCRYPTION_ID" > "$ENCRYPTED_FILE"
-  gpg --batch --yes --passphrase "$GPG_PASSPHRASE" --armor --output tmp --symmetric --cipher-algo AES256 "$UNENCRYPTED_FILE"
-  cat tmp >> "$ENCRYPTED_FILE"
+  echo "Encrypting $FILE..."
+  gpg --batch --yes --passphrase "$GPG_PASSPHRASE" --armor --output tmp --symmetric --cipher-algo AES256 "$FILE"
+  echo "$ENCRYPTION_ID" | cat - tmp > "$FILE"
 }
 
-cat "$ENCRYPTED_FILE" "$UNENCRYPTED_FILE"
+decrypt
+cat "$FILE"
+
+decrypt
+cat "$FILE"
+
+# encrypt
+# cat "$FILE"
+
 
 # # for testing only
 # git add "$ENCRYPTED_FILE" "$UNENCRYPTED_FILE"
