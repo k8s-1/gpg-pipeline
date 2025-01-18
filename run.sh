@@ -31,6 +31,7 @@ function encrypt() {
   echo "Encrypting $FILE..."
   gpg --batch --yes --passphrase "$GPG_PASSPHRASE" --armor --output tmp --symmetric --cipher-algo AES256 "$FILE"
   echo "$ENCRYPTION_ID" | cat - tmp > "$FILE"
+  rm tmp
 }
 
 decrypt
