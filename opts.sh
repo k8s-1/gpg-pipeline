@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Encrypt / decrypt all json and yaml files generically
+# Encrypt / decrypt all JSON, YAML, INI, ENV files recursively 
 #
 # Requires environment variable:
 # AGE_SK_FILE_CONTENTS
