@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Encrypt / decrypt all json and yaml files generically
+#
+# Requires environment variable:
+# AGE_SK_FILE_CONTENTS
+
 usage() {
     echo "Usage: $0 [OPTION]"
     echo "  --encrypt            Encrypt mode"
@@ -7,16 +12,17 @@ usage() {
     exit 1
 }
 
-mode=""
+encrypt() {
+  echo "Encrypting..."
+}
+
+decrypt() {
+  echo "Decrypting..."
+}
+
 if [ -z "$1" ]; then usage; fi
 case "$1" in
-    --encrypt) mode="encrypt" ;;
-    --decrypt) mode="decrypt" ;;
+    --encrypt) encrypt ;;
+    --decrypt) decrypt ;;
     *) usage ;;
 esac
-
-if [[ "$mode" == "encrypt" ]]; then
-  echo "Encrypting..."
-elif [[ "$mode" == "decrypt" ]]; then
-  echo "Decrypting..."
-fi
