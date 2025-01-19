@@ -1,3 +1,23 @@
 test:
-    my: yaml
-    ok: 123
+    my: ENC[AES256_GCM,data:UEyL+g==,iv:NK7CxdL/PjSc85zApdMXWutMWSTefY31Y3ieu48QfKw=,tag:N5UE3NUMCQwo6ImVmq10bw==,type:str]
+    ok: ENC[AES256_GCM,data:NSVY,iv:w/YKQdPchMD20hRerouytM12RKnACQ+ul0KDwtMs7G0=,tag:O0IHJbNjz44J8G9jXAKbrw==,type:int]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1c6ejj2rcwuxr77pscn5qsfmzp7jtrr0z0qut0yddxayqy0ku7p5qjnz46c
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB0SUxhdDFPSXlWeFhPNnV4
+            NTM1bi9YeERMc1Y1Z0ZMSHBSYjdOaDB4M1hvCnVGRThLc1A2Sk5tSFBpS3RIYjlz
+            bENIVGxCeGQvOTZ4RVhzblFMSGpIb1EKLS0tIHoyVkZDNTcxNWpLKzFJQVdEZlUw
+            dEZIQmlPV0ZnOHRqOWhFd21PWkgwTmsKAmknsQqjtH99gHJBFOvX3Ki/ure2PWk1
+            uxZuNIvLj2hCPYYKLWleAuHp/HUPU2wFqtX38ZqQYyLlta54KxtOYg==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2025-01-19T00:07:06Z"
+    mac: ENC[AES256_GCM,data:08FZgeumRDRz6WVIshGnELjiLRUNb33fg4BMrGCOqxGPqVPSAsR75/TQ6m39vkCD0A9EYxuEWinkKuEg8siF3S2i2QD030ddODLCLIaV4Ejr0VYWuaHT/HnAwNc+zXzwxwiiMnVW2/qGWNzhYRXAjPo6AQu4tu6mdp/i++QV+6o=,iv:7E4IhaUMt6V8D8gZSOFf4YkBVJ5AjCb/0IavIOZl9cY=,tag:NcPR74EW1T1ACiKpa+jcwA==,type:str]
+    pgp: []
+    unencrypted_suffix: _unencrypted
+    version: 3.9.1
