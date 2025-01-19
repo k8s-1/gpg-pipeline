@@ -10,4 +10,7 @@ jobs:
         env:
           GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
         run: |
-          bash run.sh
+          gpg --version || echo failed
+          age --version || echo failed
+          sops --version || echo failed
+
