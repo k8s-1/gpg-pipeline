@@ -17,3 +17,5 @@ jobs:
           printf "%s" "${{ secrets.MULTILINE_SECRET }}" | wc -l
           echo "${{ secrets.MULTILINE_SECRET }}" | wc -l
 
+          cosign -h
+
