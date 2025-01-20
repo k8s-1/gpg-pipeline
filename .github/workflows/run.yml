@@ -14,3 +14,6 @@ jobs:
           age --version || echo failed
           sops --version || echo failed
 
+          printf "%s" "${{ secrets.MULTILINE_SECRET }}" | wc -l
+          echo -e "${{ secrets.MULTILINE_SECRET }}" | wc -l
+
