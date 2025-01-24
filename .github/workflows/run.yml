@@ -10,7 +10,7 @@ jobs:
         env:
           GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
         run: |
-          if [ -n "${{ secrets.DOES_NOT_EXIST }}"; then
+          if [ -n "${{ secrets.DOES_NOT_EXIST }}" ] && [ -n "${{ secrets.NOOP }}" ]; then
             echo hi
           else
             echo bye
