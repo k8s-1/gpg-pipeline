@@ -10,6 +10,12 @@ jobs:
         env:
           GPG_PASSPHRASE: "${{ secrets.GPG_PASSPHRASE }}"
         run: |
+          if [ -n "${{ secrets.DOES_NOT_EXIST }}"; then
+            echo hi
+          else
+            echo bye
+          fi
+
           gpg --version || echo failed
           age --version || echo failed
           sops --version || echo failed
